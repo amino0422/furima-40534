@@ -26,7 +26,7 @@
 | category_id        | integer    | null: false                    |
 | condition_id       | integer    | null: false                    |
 | postage_type_id    | integer    | null: false                    |
-| shopping_region_id | integer    | null: false                    |
+| region_id          | integer    | null: false                    |
 | shopping_date_id   | integer    | null: false                    |
 | user               | references | null: false, foreign_key: ture |
 
@@ -39,25 +39,24 @@
 | Column             | Type       | Options                        |
 |--------------------|------------|--------------------------------|
 | post_code          | string     | null: false                    |
-| prefecture         | string     | null: false                    |
+| region_id          | integer    | null: false                    |
 | city               | string     | null: false                    |
 | street_address     | string     | null: false                    |
 | building           | string     |                                |
 | phone_number       | string     | null: false                    |
-| user               | references | null: false, foreign_key: ture |
-| item               | references | null: false, foreign_key: ture |
+| history            | references | null: false, foreign_key: true |
 
 ### Association
-- has_one :history
+- belongs_to :history
 
-## historyテーブル
+
+## historiesテーブル
 | Column             | Type       | Options                        |
 |--------------------|------------|--------------------------------|
 | user               | references | null: false, foreign_key: true |
 | item               | references | null: false, foreign_key: true |
-| delivery_address   | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
 - belongs_to :item
-- belongs_to :delivery
+- has_one :delivery
