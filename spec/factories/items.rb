@@ -3,11 +3,11 @@ FactoryBot.define do
     product { "Example product" }
     price { 500 }
     seller_comment { "This is a comment" }
-    category_id { 1 }
-    condition_id { 1 }
-    postage_type_id { 1 }
-    region_id { 1 }
-    shopping_date_id  { 1 }
+    category_id { 2 }
+    condition_id { 2 }
+    postage_type_id { 2 }
+    region_id { 2 }
+    shopping_date_id  { 2 }
     association :user
 
     after(:build) do |item|
