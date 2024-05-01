@@ -14,7 +14,7 @@
 
 ### Association
 - has_many :items
-- has_many :histories
+- has_many :orders
 
 
 ## itemsテーブル
@@ -32,10 +32,10 @@
 
 ### Association
 - belongs_to :user
-- has_one :history
+- has_one :order
 
 
-## deliveriesテーブル
+## shopping_addressesテーブル
 | Column             | Type       | Options                        |
 |--------------------|------------|--------------------------------|
 | post_code          | string     | null: false                    |
@@ -44,13 +44,13 @@
 | street_address     | string     | null: false                    |
 | building           | string     |                                |
 | phone_number       | string     | null: false                    |
-| history            | references | null: false, foreign_key: true |
+| order              | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :history
+- belongs_to :order
 
 
-## historiesテーブル
+## ordersテーブル
 | Column             | Type       | Options                        |
 |--------------------|------------|--------------------------------|
 | user               | references | null: false, foreign_key: true |
@@ -59,4 +59,4 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
-- has_one :delivery
+- has_one :shopping_address
