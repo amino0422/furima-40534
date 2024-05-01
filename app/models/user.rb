@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
+  has_many :orders
+
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
   validates :nickname,        presence: true, length: { maximum: 6 }
@@ -13,5 +16,4 @@ class User < ApplicationRecord
 
   validates :last_name_kana,  presence: true, format: { with: /\A[ァ-ヶー]+\z/, message: "is invalid. Input full-width katakana characters" }
   validates :first_name_kana, presence: true, format: { with: /\A[ァ-ヶー]+\z/, message: "is invalid. Input full-width katakana characters" }
-
 end
