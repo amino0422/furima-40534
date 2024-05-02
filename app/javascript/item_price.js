@@ -2,15 +2,13 @@ const price = () => {
 
   const priceInput = document.getElementById("item-price");
   priceInput.addEventListener("input", () => {
-    const inputValue = priceInput.value;
+      const inputValue = priceInput.value;
+      
+      const addTaxDom = document.getElementById("add-tax-price");
+      addTaxDom.innerHTML = Math.floor(inputValue * 0.1);
 
-    const addTaxDom = Math.floor(inputValue * 0.1);
-    const addTaxDomElement = document.getElementById("add-tax-price");
-    addTaxDomElement.textContent = addTaxDom;
-
-    const profitDom = Math.floor(inputValue * 0.9);
-    const profitDomElement = document.getElementById("profit");
-    profitDomElement.textContent = profitDom;
+      const profitDom = document.getElementById("profit");
+      profitDom.innerHTML = Math.floor(inputValue * 0.9);
   });
 };
 
